@@ -28,7 +28,7 @@ This is an updated build guide to help people who recently discovered Sonus. It 
 
 
             Following this guide to build a Sonus-Research system assumes basic understanding of 
-	    electronics and programming in MicroPython on Rasp Pico boards. 
+	         electronics and programming in MicroPython on Rasp Pico boards. 
             If you encounter any issues, feel free to report it.
 
 ### 1.2 ELECTRONICS
