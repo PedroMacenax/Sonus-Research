@@ -2,7 +2,7 @@
 <img src="/resource/Logo.png" width="40%" height="40%">
 </h1>
 <h3 align="center">
-	Open-source behavioral modifyer device.
+	Open-source sound research device.
 </h3>
 <p align="center">
 	<strong>
@@ -16,18 +16,19 @@ I’m <a href="https://www.instagram.com/pedromacenax/">Pedro Macena</a> and whe
 
 2 years later: this idea became Sonus.
 
-* Fully Open-source - **hardware**, **software**, **firmware**.
+* Fully Open-source - **hardware** and **software**
 
 
 **This repo serves as a Build guide, to learn more about the project on <a href="https://pedromacena.org/sonus">pedromacena.org/sonus</a>**
 
 # Building The Hardware
-## 1. CURRENT RECOMMENDED BUILD - As of February 2024
+## 1. CURRENT RECOMMENDED BUILD - As of April 2024
 ### 1.1 Introduction
-This is an updated build guide to help people who recently discovered Sonus. It aims to explain how to build the minimum functional product, which can be further improved upon and modified to the individual's liking.
+This is an updated build guide to help people who recently discovered Sonus. It aims to explain how to build the minimum functional product, which can be further improved upon and modified to the individual's liking under the [Creative Commons Attribution-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/), and the underlying source code used is licensed under the [GNU GPLv3](LICENSE).
 
-            Following this guide to build a Sonus system assumes basic understanding of electronics and programming Raspberry Pico boards.
-            If you encounter any issues, join our Discord and ask for help, we are happy to assist.
+
+            Following this guide to build a Sonus-Research system assumes basic understanding of electronics and programming in MicroPython on IoT boards.
+            If you encounter any issues, feel free to report it.
 
 ### 1.2 ELECTRONICS
 
@@ -37,13 +38,6 @@ The following electronic components are required:
 - <a href="https://www.amazon.com/ACROBOTIC-Real-Time-Breakout-Arduino-Raspberry/dp/B08HW22WNX">Module Rtc Ds1307</a>
 - <a href="https://www.amazon.com/DIYables-Adapter-Arduino-ESP8266-Raspberry/dp/B0BXKLNN2L">Micro SD Module</a>.
 - <a href="https://www.amazon.com/dp/B09222JFBX">Microphone Module Mems Inmp441</a>.
-```
-NOTES on VR DISPLAYS:
-- The display does not connect to the Microcontroller, it only connects to the Computer running your VR Apps.
-- Technically, any PC display/monitor can be configured as the display used by Relativty. Therefore, you can simply test your build on your PC monitor
-first to make sure it works, before you decide to spend a significant amount of money on lenses, display(s) and other parts.
-- High performance, small form factor displays are expensive, and often very delicate. Handle them with care! :)
-```
 
 <h1 align="center">
 <img src="/resource/electrical_build.png" width="30%" height="30%">
