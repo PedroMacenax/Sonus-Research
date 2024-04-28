@@ -27,7 +27,8 @@ I’m <a href="https://www.instagram.com/pedromacenax/">Pedro Macena</a> and whe
 This is an updated build guide to help people who recently discovered Sonus. It aims to explain how to build the minimum functional product, which can be further improved upon and modified to the individual's liking under the [Creative Commons Attribution-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/), and the underlying source code used is licensed under the [GNU GPLv3](LICENSE).
 
 
-            Following this guide to build a Sonus-Research system assumes basic understanding of electronics and programming in MicroPython on Pico boards.
+            Following this guide to build a Sonus-Research system assumes basic understanding of 
+	    electronics and programming in MicroPython on Rasp Pico boards. 
             If you encounter any issues, feel free to report it.
 
 ### 1.2 ELECTRONICS
