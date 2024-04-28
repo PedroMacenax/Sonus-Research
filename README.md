@@ -42,16 +42,15 @@ The following electronic components are required:
 
 ### 1.2.1 Electrical Build
 
+You should be able to build the device without any issues by following the image below:
+
 <h1 align="center">
 <img src="/resource/electrical_build.png" width="30%" height="30%">
 </h1>
 
-You should be able to build the device without any issues following the image above.
+### 1.2.2 
 
-### 1.2.2 Connecting the display
-As mentioned previously, any display that is compatible with a personal computer should be able to function as your VR display.
-
-In case you are using the recommended one or a similar component that is powered via micro-USB or other USB standard, it is possible that you will encounter situations where the board does not power up. This could be either because the micro-USB cable you are using is too long (so the board cannot power up because the voltage dropped too much), or the board is unable to turn on because the USB port it connects to on the computer side is simply unable to supply enough power. In this case, you might need to try different ports on your computer or a powered USB hub.
+Make sure to make the connections to the right pins, otherwise it might not work or damage the components. It is recommended to first use a protoboard, test it and then solder it.
 
 ### 1.3 MECHANICAL BUILD
 
