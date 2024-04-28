@@ -2,7 +2,7 @@
 <img src="/resource/Logo.png" width="40%" height="40%">
 </h1>
 <h3 align="center">
-	Open-source sound research device.
+	Open-source sound research device. Fazer nova caixa, versão comercial e educacional
 </h3>
 <p align="center">
 	<strong>
@@ -47,8 +47,6 @@ You should be able to build the device without any issues by following the image
 <h1 align="center">
 <img src="/resource/electrical_build.png" width="30%" height="30%">
 </h1>
-
-### 1.2.2 
 
 Make sure to make the connections to the right pins, otherwise it might not work or damage the components. It is recommended to first use a protoboard, test it and then solder it.
 
