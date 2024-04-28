@@ -12,7 +12,7 @@
 	</strong>
 </p>
 
-I’m <a href="https://www.instagram.com/pedromacenax/">Pedro Macena</a> and when my colleague Julia Andreassa and I faced a problem at dflkjbhsfdjfgkjgsdfjh natalia is boring.
+I’m <a href="https://www.instagram.com/pedromacenax/">Pedro Macena</a> and when my colleague Julia Andreassa and I faced a very serious problem at our school we had an idea.
 
 2 years later: this idea became Sonus.
 
@@ -27,7 +27,7 @@ I’m <a href="https://www.instagram.com/pedromacenax/">Pedro Macena</a> and whe
 This is an updated build guide to help people who recently discovered Sonus. It aims to explain how to build the minimum functional product, which can be further improved upon and modified to the individual's liking under the [Creative Commons Attribution-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/), and the underlying source code used is licensed under the [GNU GPLv3](LICENSE).
 
 
-            Following this guide to build a Sonus-Research system assumes basic understanding of electronics and programming in MicroPython on IoT boards.
+            Following this guide to build a Sonus-Research system assumes basic understanding of electronics and programming in MicroPython on Pico boards.
             If you encounter any issues, feel free to report it.
 
 ### 1.2 ELECTRONICS
@@ -39,11 +39,12 @@ The following electronic components are required:
 - <a href="https://www.amazon.com/DIYables-Adapter-Arduino-ESP8266-Raspberry/dp/B0BXKLNN2L">Micro SD Module</a>.
 - <a href="https://www.amazon.com/dp/B09222JFBX">Microphone Module Mems Inmp441</a>.
 
+### 1.2.1 Electrical Build
+
 <h1 align="center">
 <img src="/resource/electrical_build.png" width="30%" height="30%">
 </h1>
 
-### 1.2.1 Electrical Build
 The IMU needs to be connected to the MCU for power and communication.
 The MCU connects to your computer via USB to send the IMU readings to SteamVR.
 
