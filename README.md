@@ -28,7 +28,7 @@ This is an updated build guide to help people who recently discovered Sonus. It 
 
 
             Following this guide to build a Sonus-Research system assumes basic understanding of 
-	         electronics and programming in MicroPython on Rasp Pico boards. 
+	        electronics and programming in MicroPython on Rasp Pico boards. 
             If you encounter any issues, feel free to report it.
 
 ### 1.2 ELECTRONICS
@@ -46,35 +46,18 @@ The following electronic components are required:
 <img src="/resource/electrical_build.png" width="30%" height="30%">
 </h1>
 
-The IMU needs to be connected to the MCU for power and communication.
-The MCU connects to your computer via USB to send the IMU readings to SteamVR.
-
-In case of an Arduino Pro Micro, you need to connect the following pins:
-```
-Pro Micro       IMU
-VCC         ->  VCC  
-GND         ->  GND  
-SDA(pin 2)  ->  SDA  
-SCL(pin 3)  ->  SCL  
-```  
-If you use a different MCU, the SDA and SCL pins might be mapped to different pin numbers.
-
-Also, make sure that the VCC of your MCU is compatible with the rated operating voltage of your IMU.
-
-Supplying incorrect voltage to electronic components may cause damage to them.
-
-The MCU itself simply connets to your computer via the USB port.
+You should be able to build the device without any issues following the image above.
 
 ### 1.2.2 Connecting the display
 As mentioned previously, any display that is compatible with a personal computer should be able to function as your VR display.
 
 In case you are using the recommended one or a similar component that is powered via micro-USB or other USB standard, it is possible that you will encounter situations where the board does not power up. This could be either because the micro-USB cable you are using is too long (so the board cannot power up because the voltage dropped too much), or the board is unable to turn on because the USB port it connects to on the computer side is simply unable to supply enough power. In this case, you might need to try different ports on your computer or a powered USB hub.
 
+### 1.3 MECHANICAL BUILD
+
 <h1 align="center">
 <img src="/resource/images/Mechanical_Build.gif" width="25%" height="25%"/>
 </h1>
-
-### 1.3 MECHANICAL BUILD
 
 The following parts are required for the Mechanical Build:
 
