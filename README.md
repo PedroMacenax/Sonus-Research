@@ -19,7 +19,7 @@ I’m <a href="https://www.instagram.com/pedromacenax/">Pedro Macena</a> and whe
 * Fully Open-source - **hardware** and **software**
 
 
-**This repo serves as a Build guide, to learn more about the project on <a href="https://pedromacena.org/sonus">pedromacena.org/sonus</a>**
+**This repo serves as a Build guide, to learn more about the project itself visit <a href="https://pedromacena.org/sonus">pedromacena.org/sonus</a>**
 
 # Building The Hardware
 ## 1. CURRENT RECOMMENDED BUILD - As of April 2024
