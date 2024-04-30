@@ -2,7 +2,7 @@
 <img src="/resource/Logo.png" width="40%" height="40%">
 </h1>
 <h3 align="center">
-	Open-source sound research device. Fazer nova caixa, versão comercial e educacional
+	Open-source sound research device
 </h3>
 <p align="center">
 	<strong>
