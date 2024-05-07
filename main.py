@@ -28,6 +28,35 @@ while True:
     print(num_bytes_read)
 
 
+#  General
+## Gather the noise level, date, put it into a .csv file and save it.
+
+#  MicroSD Module,
+## Set up for usage
+
+
+#  Microphone Module
+## Set up for usage
+import machine
+import time
+from machine import I2S
+from machine import Pin
+import uctypes
+
+# Configuration
+
+SCK_PIN = machine.Pin(18, Pin.IN) # Serial Clock connected to GP
+WS_PIN = machine.Pin(19, Pin.IN) # World Clock connected to GP12
+SD_PIN = machine.Pin(20, Pin.IN) # Serial Data connected to GP11
+audio_in = I2S(0, sck=SCK_PIN, ws=WS_PIN, sd=SD_PIN, mode=I2S.RX,
+               bits=32, format=I2S.STEREO,rate=16000, ibuf=20000)
+samples = bytearray(2048)
+
+while True:
+    time.sleep(0.1)
+    
+
+
 #  Clock Module
 ## Tell time
 from machine import I2C, Pin
