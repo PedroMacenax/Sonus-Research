@@ -1,67 +1,50 @@
 #  General
-## Gather the noise level, date, put it into a .csv file and save it.
-
-#  MicroSD Module,
-## Set up for usage
+## Gather the noise level and date, put it into a .csv file and save it
 
 
-#  Microphone Module
-## Set up for usage
-import machine
-import time
-from machine import I2S
-from machine import Pin
-import uctypes
 
-# Configuration
+#  MicroSD Module
 
-SCK_PIN = machine.Pin(18) # Serial Clock connected to GP
-WS_PIN = machine.Pin(19) # World Clock connected to GP12
-SD_PIN = machine.Pin(20) # Serial Data connected to GP11
-audio_in = I2S(0, sck=SCK_PIN, ws=WS_PIN, sd=SD_PIN, mode=I2S.RX,
-               bits=32, format=I2S.STEREO,rate=16000, ibuf=20000)
-samples = bytearray(2048)
-
-while True:
-    time.sleep(0.1)
-    num_bytes_read = audio_in.readinto(samples)
-    print(num_bytes_read)
-
-
-#  General
-## Gather the noise level, date, put it into a .csv file and save it.
-
-#  MicroSD Module,
-## Set up for usage
 
 
 #  Microphone Module
-## Set up for usage
 import machine
-import time
-from machine import I2S
-from machine import Pin
-import uctypes
+import struct
 
-# Configuration
+# Define the pins for the I2S interface
+sck_pin = machine.Pin(14)  # Serial clock
+ws_pin = machine.Pin(15)   # Word select (LRCLK)
+sd_pin = machine.Pin(13)   # Serial data
 
-SCK_PIN = machine.Pin(18, Pin.IN) # Serial Clock connected to GP
-WS_PIN = machine.Pin(19, Pin.IN) # World Clock connected to GP12
-SD_PIN = machine.Pin(20, Pin.IN) # Serial Data connected to GP11
-audio_in = I2S(0, sck=SCK_PIN, ws=WS_PIN, sd=SD_PIN, mode=I2S.RX,
-               bits=32, format=I2S.STEREO,rate=16000, ibuf=20000)
-samples = bytearray(2048)
+# Setup I2S
+i2s = machine.I2S(
+    0,                      # I2S ID
+    sck=sck_pin,            # Serial clock pin
+    ws=ws_pin,              # Word select pin
+    sd=sd_pin,              # Serial data pin
+    mode=machine.I2S.RX,    # Receive mode
+    bits=16,                # Sample size in bits
+    format=machine.I2S.MONO,# Mono format
+    rate=16000,             # Sampling rate
+    ibuf=20000              # Internal buffer length
+)
 
+# Buffer to hold microphone data
+mic_samples = bytearray(20000)
+
+# Main loop to read data from the microphone
 while True:
-    time.sleep(0.1)
-    
+    num_read = i2s.readinto(mic_samples)
+    print("Read {} bytes".format(num_read))
+    # Process mic_samples here
+    # For example, convert to a list of integers:
+    samples = struct.unpack('<' + 'h' * (num_read // 2), mic_samples)
+    print(samples)
 
 
 #  Clock Module
-## Tell time
 from machine import I2C, Pin
 from urtc import DS1307
-import utime
 from time import sleep
 
 i2c = I2C(0,scl = Pin(1),sda = Pin(0),freq = 400000)
@@ -74,16 +57,19 @@ def show_time(wait):
     
 
 def set_time():
-    year = int(input("Year : "))
+    year = int(input("Year: "))
     month = int(input("month (Jan --> 1 , Dec --> 12): "))
-    date = int(input("date : "))
+    date = int(input("date: "))
     day = int(input("day (1 --> monday , 2 --> Tuesday ... 0 --> Sunday): "))
     hour = int(input("hour (24 Hour format): "))
-    minute = int(input("minute : "))
-    second = int(input("second : "))
+    minute = int(input("minute: "))
+    second = int(input("second: "))
     now = (year,month,date,day,hour,minute,second,0)
     rtc.datetime(now)
 
+while True:
+    show_time(1)
+    
 
 #  RGB LED
 ## Use the on board RGB led as a debugging tool and as a volume warning
