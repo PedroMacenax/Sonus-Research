@@ -14,6 +14,7 @@ import math
 
 # Constants
 REFERENCE_VALUE = 32767  # Maximum value for 16-bit signed integer (for dB calculation)
+CALIBRATION_OFFSET = 117  # Offset based on calibration
 
 # Define the pins for the I2S interface
 sck_pin = machine.Pin(14)  # Serial clock
@@ -35,18 +36,15 @@ i2s = machine.I2S(
 
 # Function to calculate decibel level from audio samples
 def calculate_decibels(samples):
-    # Convert samples to numpy array for easier calculation
-    samples_np = bytearray(samples)
-    
     # Calculate RMS (Root Mean Square)
-    rms = math.sqrt(sum(sample ** 2 for sample in samples_np) / len(samples_np))
+    rms = math.sqrt(sum(sample ** 2 for sample in samples) / len(samples))
     
     # Ensure RMS is positive to avoid math domain error
     if rms <= 0:
         return float('-inf')  # No signal, return negative infinity (or any other indicator)
     
     # Calculate decibels
-    decibels = 20 * math.log10(rms / REFERENCE_VALUE)
+    decibels = round(20 * math.log10(rms / REFERENCE_VALUE) + CALIBRATION_OFFSET, 2)
     return decibels
 
 # Buffer to hold microphone data
