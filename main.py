@@ -1,5 +1,5 @@
 #  General
-## Gather the noise level and date, put it into a .csv file and save it
+## Gather the noise level, date, put it into a .csv file and save it.
 
 
 
@@ -10,6 +10,10 @@
 #  Microphone Module
 import machine
 import struct
+import math
+
+# Constants
+REFERENCE_VALUE = 32767  # Maximum value for 16-bit signed integer (for dB calculation)
 
 # Define the pins for the I2S interface
 sck_pin = machine.Pin(14)  # Serial clock
@@ -29,6 +33,22 @@ i2s = machine.I2S(
     ibuf=20000              # Internal buffer length
 )
 
+# Function to calculate decibel level from audio samples
+def calculate_decibels(samples):
+    # Convert samples to numpy array for easier calculation
+    samples_np = bytearray(samples)
+    
+    # Calculate RMS (Root Mean Square)
+    rms = math.sqrt(sum(sample ** 2 for sample in samples_np) / len(samples_np))
+    
+    # Ensure RMS is positive to avoid math domain error
+    if rms <= 0:
+        return float('-inf')  # No signal, return negative infinity (or any other indicator)
+    
+    # Calculate decibels
+    decibels = 20 * math.log10(rms / REFERENCE_VALUE)
+    return decibels
+
 # Buffer to hold microphone data
 mic_samples = bytearray(20000)
 
@@ -36,10 +56,16 @@ mic_samples = bytearray(20000)
 while True:
     num_read = i2s.readinto(mic_samples)
     print("Read {} bytes".format(num_read))
-    # Process mic_samples here
-    # For example, convert to a list of integers:
+    
+    # Convert mic_samples to a list of integers
     samples = struct.unpack('<' + 'h' * (num_read // 2), mic_samples)
-    print(samples)
+    
+    # Calculate decibels
+    decibels = calculate_decibels(samples)
+    
+    # Print decibels level
+    print("Decibels: {:.2f} dB".format(decibels))
+
 
 
 #  Clock Module
@@ -69,7 +95,8 @@ def set_time():
 
 while True:
     show_time(1)
-    
+
+
 
 #  RGB LED
 ## Use the on board RGB led as a debugging tool and as a volume warning
