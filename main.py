@@ -1,10 +1,57 @@
 #  General
 ## Gather the noise level, date, put it into a .csv file and save it.
 
+# Import the necessary modules
+## Microphone
+import machine
+import struct
+import math
+## Save data
+import os
+
+# Define variables and constants
+## Save data
+date = str()
+## Microphone
+REFERENCE_VALUE = 32767  # Maximum value for 16-bit signed integer (for dB calculation)
+CALIBRATION_OFFSET = 117  # Offset based on calibration
 
 
+
+
+# Save data
+while True:
+    with open(f"data-{}.csv", "w") as file:
+        file.write("Hello, Raspberry Pi Pico!\n")
+        file.write("This is a text file.\n")
+
+"""
 #  MicroSD Module
+import machine
+import sdcard
+import uos
 
+
+CS = machine.Pin(9, machine.Pin.OUT)
+spi = machine.SPI(1,baudrate=1000000,polarity=0,phase=0,bits=8,firstbit=machine.SPI.MSB,sck=machine.Pin(10),mosi=machine.Pin(11),miso=machine.Pin(8))
+
+sd = sdcard.SDCard(spi,CS)
+
+vfs = uos.VfsFat(sd)
+uos.mount(vfs, "/sd")
+
+# Create a file and write something to it
+with open("/sd/data.txt", "w") as file:
+    print("Writing to data.txt...")
+    file.write("Welcome to microcontrollerslab!\r\n")
+    file.write("This is a test\r\n")
+
+# Open the file we just created and read from it
+with open("/sd/data.txt", "r") as file:
+    print("Reading data.txt...")
+    data = file.read()
+    print(data)
+"""
 
 
 #  Microphone Module
@@ -17,9 +64,9 @@ REFERENCE_VALUE = 32767  # Maximum value for 16-bit signed integer (for dB calcu
 CALIBRATION_OFFSET = 117  # Offset based on calibration
 
 # Define the pins for the I2S interface
-sck_pin = machine.Pin(14)  # Serial clock
-ws_pin = machine.Pin(15)   # Word select (LRCLK)
-sd_pin = machine.Pin(13)   # Serial data
+sck_pin = machine.Pin(13)  # Serial clock
+ws_pin = machine.Pin(14)   # Word select (LRCLK)
+sd_pin = machine.Pin(12)   # Serial data
 
 # Setup I2S
 i2s = machine.I2S(
@@ -76,7 +123,7 @@ rtc = DS1307(i2c)
 
 def show_time(wait):
     (year,month,date,day,hour,minute,second,p1)=rtc.datetime()
-    utime.sleep(wait)
+    sleep(wait)
     print(rtc.datetime())
     
 
@@ -98,7 +145,6 @@ while True:
 
 #  RGB LED
 ## Use the on board RGB led as a debugging tool and as a volume warning
-"""
 from machine import Pin, Timer
 from time import sleep
 from neopixel import Neopixel
@@ -141,4 +187,3 @@ pixels.show()
 
 while True:
     rainbow_cycle(pixels,0.01)
-"""
