@@ -22,7 +22,7 @@ I’m <a href="https://www.instagram.com/pedromacenax/">Pedro Macena</a> and whe
 **This repo serves as a Build guide, to learn more about the project itself visit <a href="https://pedromacena.org/sonus">pedromacena.org/sonus</a>**
 
 # Building The Hardware
-## 1. CURRENT RECOMMENDED BUILD - As of April 2024
+## 1. CURRENT RECOMMENDED BUILD - As of July 2024
 ### 1.1 Introduction
 This is an updated build guide to help people who recently discovered Sonus. It aims to explain how to build the minimum functional product, which can be further improved upon and modified to the individual's liking under the [Creative Commons Attribution-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/), and the underlying source code used is licensed under the [GNU GPLv3](LICENSE).
 
